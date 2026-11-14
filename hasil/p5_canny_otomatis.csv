@@ -1,0 +1,161 @@
+kondisi,kanal,ambang,F1,median
+normal,Gray,otomatis,0.677,173.0
+normal,Gray,tetap 30/90,0.701,173.0
+normal,R,otomatis,0.895,171.0
+normal,R,tetap 30/90,0.975,171.0
+gelap,Gray,otomatis,0.455,127.0
+gelap,Gray,tetap 30/90,0.708,127.0
+gelap,R,otomatis,0.194,148.0
+gelap,R,tetap 30/90,0.968,148.0
+terang,Gray,otomatis,0.894,204.0
+terang,Gray,tetap 30/90,0.725,204.0
+terang,R,otomatis,0.991,208.0
+terang,R,tetap 30/90,0.998,208.0
+kontras_rendah,Gray,otomatis,0.391,141.0
+kontras_rendah,Gray,tetap 30/90,0.968,141.0
+kontras_rendah,R,otomatis,0.157,147.0
+kontras_rendah,R,tetap 30/90,0.999,147.0
+bayangan,Gray,otomatis,0.654,117.0
+bayangan,Gray,tetap 30/90,0.739,117.0
+bayangan,R,otomatis,0.346,132.0
+bayangan,R,tetap 30/90,1.0,132.0
+normal,Gray,otomatis,0.734,172.0
+normal,Gray,tetap 30/90,0.746,172.0
+normal,R,otomatis,0.927,180.0
+normal,R,tetap 30/90,1.0,180.0
+gelap,Gray,otomatis,0.209,134.0
+gelap,Gray,tetap 30/90,0.729,134.0
+gelap,R,otomatis,0.269,127.0
+gelap,R,tetap 30/90,1.0,127.0
+terang,Gray,otomatis,0.823,193.0
+terang,Gray,tetap 30/90,0.76,193.0
+terang,R,otomatis,0.989,201.0
+terang,R,tetap 30/90,0.998,201.0
+kontras_rendah,Gray,otomatis,0.548,147.0
+kontras_rendah,Gray,tetap 30/90,0.993,147.0
+kontras_rendah,R,otomatis,0.461,144.0
+kontras_rendah,R,tetap 30/90,0.998,144.0
+bayangan,Gray,otomatis,0.345,117.0
+bayangan,Gray,tetap 30/90,0.745,117.0
+bayangan,R,otomatis,0.136,122.0
+bayangan,R,tetap 30/90,0.999,122.0
+normal,Gray,otomatis,0.699,166.0
+normal,Gray,tetap 30/90,0.743,166.0
+normal,R,otomatis,0.725,176.0
+normal,R,tetap 30/90,1.0,176.0
+gelap,Gray,otomatis,0.528,147.0
+gelap,Gray,tetap 30/90,0.727,147.0
+gelap,R,otomatis,0.271,155.0
+gelap,R,tetap 30/90,0.99,155.0
+terang,Gray,otomatis,0.879,204.0
+terang,Gray,tetap 30/90,0.734,204.0
+terang,R,otomatis,0.971,207.0
+terang,R,tetap 30/90,0.994,207.0
+kontras_rendah,Gray,otomatis,0.497,146.0
+kontras_rendah,Gray,tetap 30/90,0.96,146.0
+kontras_rendah,R,otomatis,0.237,149.0
+kontras_rendah,R,tetap 30/90,1.0,149.0
+bayangan,Gray,otomatis,0.649,115.0
+bayangan,Gray,tetap 30/90,0.775,115.0
+bayangan,R,otomatis,0.789,123.0
+bayangan,R,tetap 30/90,0.999,123.0
+normal,Gray,otomatis,0.641,156.0
+normal,Gray,tetap 30/90,0.748,156.0
+normal,R,otomatis,0.322,179.0
+normal,R,tetap 30/90,1.0,179.0
+gelap,Gray,otomatis,0.641,144.0
+gelap,Gray,tetap 30/90,0.743,144.0
+gelap,R,otomatis,0.826,154.0
+gelap,R,tetap 30/90,1.0,154.0
+terang,Gray,otomatis,0.906,202.0
+terang,Gray,tetap 30/90,0.743,202.0
+terang,R,otomatis,0.995,199.0
+terang,R,tetap 30/90,0.993,199.0
+kontras_rendah,Gray,otomatis,0.891,150.0
+kontras_rendah,Gray,tetap 30/90,0.97,150.0
+kontras_rendah,R,otomatis,0.88,150.0
+kontras_rendah,R,tetap 30/90,0.988,150.0
+bayangan,Gray,otomatis,0.668,114.0
+bayangan,Gray,tetap 30/90,0.755,114.0
+bayangan,R,otomatis,0.899,122.0
+bayangan,R,tetap 30/90,0.997,122.0
+normal,Gray,otomatis,0.652,156.0
+normal,Gray,tetap 30/90,0.692,156.0
+normal,R,otomatis,0.377,167.0
+normal,R,tetap 30/90,0.74,167.0
+gelap,Gray,otomatis,0.628,145.0
+gelap,Gray,tetap 30/90,0.705,145.0
+gelap,R,otomatis,0.836,139.0
+gelap,R,tetap 30/90,0.946,139.0
+terang,Gray,otomatis,0.82,196.0
+terang,Gray,tetap 30/90,0.757,196.0
+terang,R,otomatis,0.962,200.0
+terang,R,tetap 30/90,0.973,200.0
+kontras_rendah,Gray,otomatis,0.763,147.0
+kontras_rendah,Gray,tetap 30/90,0.956,147.0
+kontras_rendah,R,otomatis,0.523,150.0
+kontras_rendah,R,tetap 30/90,0.981,150.0
+bayangan,Gray,otomatis,0.734,123.0
+bayangan,Gray,tetap 30/90,0.796,123.0
+bayangan,R,otomatis,0.557,135.0
+bayangan,R,tetap 30/90,0.951,135.0
+normal,Gray,otomatis,0.751,168.0
+normal,Gray,tetap 30/90,0.746,168.0
+normal,R,otomatis,0.893,188.0
+normal,R,tetap 30/90,0.961,188.0
+gelap,Gray,otomatis,0.616,131.0
+gelap,Gray,tetap 30/90,0.739,131.0
+gelap,R,otomatis,0.402,165.0
+gelap,R,tetap 30/90,0.953,165.0
+terang,Gray,otomatis,0.91,202.0
+terang,Gray,tetap 30/90,0.714,202.0
+terang,R,otomatis,0.943,209.0
+terang,R,tetap 30/90,0.936,209.0
+kontras_rendah,Gray,otomatis,0.546,147.0
+kontras_rendah,Gray,tetap 30/90,0.893,147.0
+kontras_rendah,R,otomatis,0.421,146.0
+kontras_rendah,R,tetap 30/90,0.915,146.0
+bayangan,Gray,otomatis,0.73,121.0
+bayangan,Gray,tetap 30/90,0.731,121.0
+bayangan,R,otomatis,0.682,128.0
+bayangan,R,tetap 30/90,0.961,128.0
+normal,Gray,otomatis,0.766,173.0
+normal,Gray,tetap 30/90,0.727,173.0
+normal,R,otomatis,0.68,181.0
+normal,R,tetap 30/90,0.955,181.0
+gelap,Gray,otomatis,0.533,142.0
+gelap,Gray,tetap 30/90,0.703,142.0
+gelap,R,otomatis,0.163,158.0
+gelap,R,tetap 30/90,0.963,158.0
+terang,Gray,otomatis,0.896,198.0
+terang,Gray,tetap 30/90,0.769,198.0
+terang,R,otomatis,0.997,204.0
+terang,R,tetap 30/90,0.991,204.0
+kontras_rendah,Gray,otomatis,0.925,156.0
+kontras_rendah,Gray,tetap 30/90,0.754,156.0
+kontras_rendah,R,otomatis,0.948,155.0
+kontras_rendah,R,tetap 30/90,0.912,155.0
+bayangan,Gray,otomatis,0.787,122.0
+bayangan,Gray,tetap 30/90,0.754,122.0
+bayangan,R,otomatis,0.882,130.0
+bayangan,R,tetap 30/90,0.987,130.0
+normal,Gray,otomatis,0.659,158.0
+normal,Gray,tetap 30/90,0.696,158.0
+normal,R,otomatis,0.387,167.0
+normal,R,tetap 30/90,0.908,167.0
+gelap,Gray,otomatis,0.776,139.0
+gelap,Gray,tetap 30/90,0.801,139.0
+gelap,R,otomatis,0.781,151.0
+gelap,R,tetap 30/90,0.965,151.0
+terang,Gray,otomatis,0.813,201.0
+terang,Gray,tetap 30/90,0.716,201.0
+terang,R,otomatis,0.774,205.0
+terang,R,tetap 30/90,0.951,205.0
+kontras_rendah,Gray,otomatis,0.923,153.0
+kontras_rendah,Gray,tetap 30/90,0.922,153.0
+kontras_rendah,R,otomatis,0.938,154.0
+kontras_rendah,R,tetap 30/90,0.974,154.0
+bayangan,Gray,otomatis,0.258,115.0
+bayangan,Gray,tetap 30/90,0.739,115.0
+bayangan,R,otomatis,0.104,119.0
+bayangan,R,tetap 30/90,0.963,119.0

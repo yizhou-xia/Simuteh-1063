@@ -1,0 +1,8 @@
+berkas,lebar,tinggi,MB,ada_GPS,bercak_px_kerja
+contoh_gps.jpg,640,480,0.08,True,2.7
+kebun_01.jpg,2000,1500,0.48,False,6.7
+kebun_02.jpg,2000,1500,0.47,True,6.7
+kebun_03.jpg,2000,1500,0.44,False,6.7
+kebun_04.jpg,2000,1500,0.43,False,6.7
+kebun_05.jpg,2000,1500,1.33,True,6.7
+kebun_06.jpg,2000,1500,0.45,False,6.7
