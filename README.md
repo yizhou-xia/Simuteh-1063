@@ -5,8 +5,8 @@ histogram, penapisan, praproses, deteksi tepi, dan analisis morfologi bercak.
 
 ## Persiapan lingkungan
 
-Gunakan Python 3.10 atau lebih baru, lalu pasang dependensi dari folder utama
-repo:
+Gunakan Python 3.10 atau lebih baru (hasil eksekusi terakhir diverifikasi pada
+Python 3.13), lalu pasang dependensi dari folder utama repo:
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -31,13 +31,13 @@ Buka notebook secara berurutan di VS Code atau Jupyter:
 3. `notebook/B3_histogram.ipynb`
 4. `notebook/B4_penapisan.ipynb`
 5. `notebook/B5_praproses.ipynb`
-6. `notebook/M02_Citra_Acuan.ipynb`
-7. `notebook/P5_tepi.ipynb`
-8. `notebook/P6_morfologi.ipynb`
+6. `notebook/P5_tepi.ipynb`
+7. `notebook/P6_morfologi.ipynb`
 
 Notebook mengimpor fungsi bersama dari `src/utils_cv.py`, `src/praproses.py`,
 dan `src/utils_tepi.py`. Jalankan setiap notebook dengan kernel Python 3.10
-atau lebih baru. Hasil analisis disimpan di folder `hasil/`.
+atau lebih baru. Seluruh notebook di atas telah dijalankan ulang dari awal
+sampai akhir, dan hasil analisis disimpan di folder `hasil/`.
 
 Hasil utama P1–P4 meliputi `b2_kb_kanal.csv`, `b3_histogram_5kondisi.png`,
 `b4_psnr_waktu.png`, `b4_di_bercak.png`, `b5_panel_praproses.png`,
@@ -57,8 +57,9 @@ Hasil P6 meliputi:
 - `p6_gradien_morfologi.csv` untuk perbandingan gradien morfologi dan Canny;
 - `p6_ukuran_teh041.csv`, `p6_penyaringan.csv`, dan
   `p6_sebar_komponen.png` untuk pengukuran dan penyaringan komponen;
-- `p6_evaluasi_bercak.csv` dan `p6_persen_prediksi_vs_acuan.png` untuk
-  evaluasi akhir analisis bercak.
+- `p6_evaluasi_bercak.csv`, `p6_persen_prediksi_vs_acuan.png`, dan
+  `param_bercak.json` untuk evaluasi akhir analisis bercak dan parameter
+  analisis yang dipakai ulang.
 
 ## Ringkasan hasil evaluasi
 
@@ -80,17 +81,18 @@ Hasil P6 meliputi:
   kontras rendah 3,19→4,63; bayangan 5,54→8,57.
 - Uji 20 citra sehat tidak menunjukkan titik terang palsu pada semua kondisi.
 - Pada P5, Canny kanal R sesudah praproses menghasilkan F1 rerata 0,970;
-  eksperimen sigma 1 dan ambang 100/200 menghasilkan F1 rerata 0,978.
+  eksperimen sigma 1 dan ambang 100/200 menghasilkan F1 rerata 0,978,
+  sedangkan ambang tetap 30/90 menghasilkan F1 0,970 pada sigma 2.
 - Ambang Canny berbasis persentil memberi hasil terbaik pada kanal R untuk
   `q=98`, dengan F1 rerata 0,937.
-- Pada evaluasi tepi palsu, kanal R menghasilkan 0 piksel tepi di bagian
-  dalam daun pada seluruh citra sehat yang diuji, sedangkan kanal Gray masih
-  menghasilkan tepi internal.
+- Pada evaluasi tepi palsu, kanal R menghasilkan lebih sedikit tepi internal
+  daripada Gray pada pengujian 20 citra sehat.
 - Pada P6, integrasi analisis bercak menghasilkan galat absolut rerata
   persen bercak 0,646%, korelasi prediksi-acuan 0,939, dan akurasi kelas
   0,833 pada 60 citra.
-- Aturan penyaringan `luas + kebulatan + rasio` menekan bercak palsu pada
-  daun sehat lebih baik daripada aturan tanpa penyaringan.
+- Aturan penyaringan `luas + kebulatan + rasio` menghasilkan galat jumlah
+  rata-rata terendah pada daun sehat (0,40) dibandingkan aturan tanpa
+  penyaringan (3,35).
 
 ## Struktur data sintetis
 
