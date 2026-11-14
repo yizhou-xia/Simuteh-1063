@@ -87,7 +87,7 @@ def _halus(rng, skala, h=TINGGI, w=LEBAR):
     return cv2.resize(kecil, (w, h), interpolation=cv2.INTER_CUBIC)
 
 
-def buat_daun(kondisi="normal", seed=0):
+def buat_daun(kondisi="normal", seed=1063):
     """Membangkitkan foto sintetis daun teh berbercak 640 x 480 (BGR, uint8).
 
     kondisi: normal, teduh, terik, kabut, bayangan, iso, rusak, goyang.

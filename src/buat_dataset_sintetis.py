@@ -1,7 +1,8 @@
 """
 buat_dataset_sintetis.py
 Membangkitkan dataset citra sintetis daun teh untuk studi kasus SIMUTEH.
-Setiap mahasiswa memakai SEED = 4 digit terakhir NIM sehingga datanya berbeda.
+Dataset proyek ini selalu dibangkitkan dengan SEED = 1063 agar hasilnya
+reproducible.
 
 Keluaran (folder data/sintetis/):
   citra/        citra berwarna hasil "pemotretan" (dengan gangguan cahaya dan derau)
@@ -18,7 +19,7 @@ import csv
 import cv2
 import numpy as np
 
-SEED = 1063          # GANTI dengan 4 digit terakhir NIM Anda
+SEED = 1063
 N_PER_KELAS = 20     # 20 citra x 3 kelas = 60 citra
 H, W = 480, 640
 KELAS = ["sehat", "ringan", "berat"]

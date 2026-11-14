@@ -20,7 +20,8 @@ Jalankan semua perintah berikut dari folder utama repo:
 python src/buat_dataset_sintetis.py
 ```
 
-Perintah tersebut menggunakan `SEED = 1063` dan menghasilkan 60 citra pada
+Seluruh sumber keacakan proyek menggunakan seed tetap `1063`. Perintah tersebut
+menghasilkan 60 citra pada
 `data/sintetis/`, lengkap dengan citra bersih, mask daun, mask bercak, dan
 `label.csv`.
 
