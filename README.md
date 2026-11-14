@@ -5,7 +5,7 @@ histogram, penapisan, praproses, deteksi tepi, dan analisis morfologi bercak.
 
 ## Persiapan lingkungan
 
-Gunakan Python 3.10 atau lebih baru (hasil eksekusi terakhir diverifikasi pada
+Gunakan Python 3.11 atau lebih baru (hasil eksekusi terakhir diverifikasi pada
 Python 3.13), lalu pasang dependensi dari folder utama repo:
 
 ```powershell
