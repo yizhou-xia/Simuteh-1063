@@ -31,23 +31,25 @@ def _se(p, uk):
 
 def bersihkan(biner, p):
     """Opening membuang titik derau dan potongan tipis; closing menutup celah."""
-    # TODO 1: bila p["se_open"] > 0, lakukan opening dengan SE _se(p, p["se_open"])
     if p["se_open"] > 0:
-        biner = cv2.morphologyEx(biner, cv2.MORPH_OPEN, _se(p, p["se_open"]))
-    # TODO 2: bila p["se_close"] > 0, lakukan closing dengan SE _se(p, p["se_close"])
+        biner = cv2.morphologyEx(
+            biner, cv2.MORPH_OPEN, _se(p, p["se_open"]),
+            borderType=cv2.BORDER_CONSTANT, borderValue=0,
+        )
     if p["se_close"] > 0:
-        biner = cv2.morphologyEx(biner, cv2.MORPH_CLOSE, _se(p, p["se_close"]))
+        biner = cv2.morphologyEx(
+            biner, cv2.MORPH_CLOSE, _se(p, p["se_close"]),
+            borderType=cv2.BORDER_CONSTANT, borderValue=0,
+        )
     return biner
 
 
 def ukur_dan_saring(biner, p):
     """Mengembalikan mask bercak tersaring dan daftar ukuran setiap bercak."""
-    # TODO 3: label komponen terhubung (konektivitas 8)
     n, lbl, st, cen = cv2.connectedComponentsWithStats((biner > 0).astype(np.uint8),
                                                        connectivity=8)
     keluar, daftar = np.zeros_like(biner), []
     for i in range(1, n):
-        # TODO 4: luas, keliling, kebulatan 4*pi*luas/keliling^2, dan rasio aspek
         kontur, _ = cv2.findContours((lbl == i).astype(np.uint8), cv2.RETR_EXTERNAL,
                                      cv2.CHAIN_APPROX_NONE)
         luas = int(st[i, cv2.CC_STAT_AREA])
@@ -55,8 +57,6 @@ def ukur_dan_saring(biner, p):
         kebulatan = 0.0 if keliling == 0 else 4 * np.pi * luas / keliling ** 2
         w, h = cv2.minAreaRect(kontur[0])[1]
         rasio = max(w, h) / max(min(w, h), 1)
-        # TODO 5: simpan ke mask keluar hanya komponen yang memenuhi luas_min,
-        #         bulat_min, dan rasio_maks; catat ukurannya ke daftar
         if luas >= p["luas_min"] and kebulatan >= p["bulat_min"] and rasio <= p["rasio_maks"]:
             keluar[lbl == i] = 255
             daftar.append({"label": i, "luas_px": luas,
@@ -73,10 +73,8 @@ def analisis_daun(img_praproses, p=None):
     m_daun = mask_daun_awal(img_praproses)
     biner = bercak_awal(img_praproses, m_daun, kanal=p["kanal"], k=p["k"])
     m_bercak, daftar = ukur_dan_saring(bersihkan(biner, p), p)
-    # TODO 6: persen bercak = luas bercak / luas daun x 100
     luas_daun = max(int((m_daun > 0).sum()), 1)  # jaga pembagi nol
     persen = 100.0 * int((m_bercak > 0).sum()) / luas_daun
-    # TODO 7: tentukan kelas dengan batas_ringan dan batas_berat
     if persen >= p["batas_berat"]:
         kelas = "Bercak Berat"
     elif persen >= p["batas_ringan"]:

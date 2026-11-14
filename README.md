@@ -35,9 +35,22 @@ Buka notebook secara berurutan di VS Code atau Jupyter:
 7. `notebook/P6_morfologi.ipynb`
 
 Notebook mengimpor fungsi bersama dari `src/utils_cv.py`, `src/praproses.py`,
-dan `src/utils_tepi.py`. Jalankan setiap notebook dengan kernel Python 3.10
+`src/utils_tepi.py`, dan `src/bercak.py`. Jalankan setiap notebook dengan kernel Python 3.10
 atau lebih baru. Seluruh notebook di atas telah dijalankan ulang dari awal
 sampai akhir, dan hasil analisis disimpan di folder `hasil/`.
+
+### Langkah 5.5: analisis bercak yang dapat dipakai ulang
+
+`src/bercak.py` menyediakan `analisis_daun(img_praproses, p=None)`. Masukan adalah
+citra BGR hasil `praproses`; keluaran berupa kamus berisi `mask_daun`,
+`mask_bercak`, `jumlah_bercak`, `persen_bercak`, `kelas`, dan daftar ukuran
+komponen pada kunci `bercak`. Parameter opsional menimpa nilai bawaan:
+
+```python
+from bercak import analisis_daun
+hasil = analisis_daun(praproses(citra, PARAM), {"luas_min": 20})
+print(hasil["kelas"], hasil["persen_bercak"])
+```
 
 Hasil utama P1–P4 meliputi `b2_kb_kanal.csv`, `b3_histogram_5kondisi.png`,
 `b4_psnr_waktu.png`, `b4_di_bercak.png`, `b5_panel_praproses.png`,
