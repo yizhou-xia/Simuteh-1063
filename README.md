@@ -5,8 +5,8 @@ histogram, penapisan, praproses, deteksi tepi, dan analisis morfologi bercak.
 
 ## Persiapan lingkungan
 
-Gunakan Python 3.11 atau lebih baru (hasil eksekusi terakhir diverifikasi pada
-Python 3.13), lalu pasang dependensi dari folder utama repo:
+Gunakan Python 3.13.14 (versi yang digunakan pada eksekusi notebook terakhir),
+lalu pasang dependensi dari folder utama repo:
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -36,9 +36,10 @@ Buka notebook secara berurutan di VS Code atau Jupyter:
 7. `notebook/P6_morfologi.ipynb`
 
 Notebook mengimpor fungsi bersama dari `src/utils_cv.py`, `src/praproses.py`,
-`src/utils_tepi.py`, dan `src/bercak.py`. Jalankan setiap notebook dengan kernel Python 3.10
-atau lebih baru. Seluruh notebook di atas telah dijalankan ulang dari awal
-sampai akhir, dan hasil analisis disimpan di folder `hasil/`.
+`src/utils_tepi.py`, dan `src/bercak.py`. Jalankan setiap notebook dengan kernel
+Python 3.13.14. Seluruh notebook di atas telah dijalankan ulang dari awal
+sampai akhir pada 14 November 2026, dan hasil analisis disimpan di folder
+`hasil/`.
 
 ### Langkah 5.5: analisis bercak yang dapat dipakai ulang
 
@@ -54,8 +55,10 @@ print(hasil["kelas"], hasil["persen_bercak"])
 ```
 
 Hasil utama P1–P4 meliputi `b2_kb_kanal.csv`, `b3_histogram_5kondisi.png`,
-`b4_psnr_waktu.png`, `b4_di_bercak.png`, `b5_panel_praproses.png`,
-`b5_diagram_final.png`, dan `param_praproses.json`.
+`b3_panel_v_vs_bgr.png`, `b4_psnr_normal.csv`, `b4_psnr_waktu.png`,
+`b4_di_bercak.png`, `b5_kb_ringkasan.csv`, `b5_bercak_palsu.csv`,
+`b5_panel_praproses.png`, `b5_diagram_final.png`, dan
+`param_praproses.json`.
 
 Hasil P5 meliputi:
 
@@ -82,11 +85,11 @@ Hasil P6 meliputi:
   (5,53 / 6,68 / 5,75 dibanding 3,33 / 1,38 / 1,18), tetapi H turun
   menjadi 1,91 pada kontras rendah sehingga dukungannya hanya sebagian.
 - Pada P4.3, `gauss_5` bukan PSNR tertinggi. Untuk `gauss_20` urutannya
-  `median_9` 35,91 > `rerata_5` 34,92 > `median_5` 33,55 >
-  `gauss_5` 32,64; `median_3` terendah (29,76).
+  `median_9` 35,89 > `rerata_5` 34,93 > `median_5` 33,51 >
+  `gauss_5` 32,67; `median_3` terendah (29,78).
 - Pada P4.5, urutan redam lalu tajam tidak selalu lebih baik:
-  Gaussian 30,32 vs 30,20 dan Median 30,21 vs 31,17.
-- Pada P5.1, hanya kondisi terang yang mengalami penurunan KB (-16,8%).
+  Gaussian 30,35 vs 30,24 dan Median 30,18 vs 31,15.
+- Pada B5.1, hanya kondisi terang yang mengalami penurunan KB (-16,8%).
 - Pada P3.5, ambang “rerata < 80” tidak pernah aktif; rerata terendah 128,0.
 - P1.1 menggunakan piksel BGR `[175 185 189]`. Akuisisi dan P2.1 tetap:
   jarak ≤ 22 cm untuk lebar 640 px, atau ≥ 840 px untuk 30 cm.
@@ -105,8 +108,8 @@ Hasil P6 meliputi:
   persen bercak 0,646%, korelasi prediksi-acuan 0,939, dan akurasi kelas
   0,833 pada 60 citra.
 - Aturan penyaringan `luas + kebulatan + rasio` menghasilkan galat jumlah
-  rata-rata terendah pada daun sehat (0,40) dibandingkan aturan tanpa
-  penyaringan (3,35).
+  rata-rata terendah pada daun sehat (0,77) dibandingkan aturan tanpa
+  penyaringan (3,03).
 
 ## Struktur data sintetis
 
