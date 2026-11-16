@@ -1,0 +1,11 @@
+nama,kelas_acuan,kelas_prediksi,penyebab
+teh_006.png,Sehat,Bercak Ringan,bercak palsu/derau lolos penyaringan
+teh_013.png,Sehat,Bercak Ringan,bercak palsu/derau lolos penyaringan
+teh_023.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
+teh_024.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
+teh_031.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
+teh_033.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
+teh_034.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
+teh_041.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas
+teh_044.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas
+teh_049.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas

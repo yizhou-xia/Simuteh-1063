@@ -37,8 +37,8 @@ Buka notebook secara berurutan di VS Code atau Jupyter:
 
 Notebook mengimpor fungsi bersama dari `src/utils_cv.py`, `src/praproses.py`,
 `src/utils_tepi.py`, dan `src/bercak.py`. Jalankan setiap notebook dengan kernel
-Python 3.13.14. Seluruh notebook di atas telah dijalankan ulang dari awal
-sampai akhir pada 14 November 2026, dan hasil analisis disimpan di folder
+Python 3.13.14. Ketujuh notebook di atas telah diverifikasi dengan Run All
+dari awal sampai akhir tanpa error, dan hasil analisis disimpan di folder
 `hasil/`.
 
 ### Langkah 5.5: analisis bercak yang dapat dipakai ulang
@@ -64,19 +64,24 @@ Hasil P5 meliputi:
 
 - `p5_tabel_tepi.csv` dan `p5_f1_kondisi.png` untuk perbandingan Sobel,
   Prewitt, LoG, dan Canny;
-- `p5_canny_eksperimen.csv`, `p5_canny_otomatis.csv`, dan
-  `p5_canny_persentil.csv` untuk pemilihan parameter Canny;
-- `p5_tepi_palsu.csv` untuk evaluasi tepi palsu pada daun sehat.
+- `p5_canny_eksperimen.csv`, `p5_canny_otomatis.csv`,
+  `p5_f1_ambang_per_kondisi.csv`, dan `p5_canny_persentil.csv` untuk
+  pemilihan parameter Canny;
+- `p5_gradien_magnitudo_tepi_daun.csv`, `p5_tepi_palsu.csv`, dan
+  `p5_tepi_palsu_teh011.png` untuk bukti gradien tepi daun dan tepi palsu
+  pada daun sehat.
 
 Hasil P6 meliputi:
 
-- `p6_operasi_morfologi.csv`, `p6_eksperimen_se.csv`, dan `p6_panel_se.png`;
+- `p6_operasi_morfologi.csv`, `p6_operasi_teh_021.png`,
+  `p6_operasi_teh_011.png`, `p6_eksperimen_se.csv`, dan `p6_panel_se.png`;
 - `p6_gradien_morfologi.csv` untuk perbandingan gradien morfologi dan Canny;
 - `p6_ukuran_teh041.csv`, `p6_penyaringan.csv`, dan
-  `p6_sebar_komponen.png` untuk pengukuran dan penyaringan komponen;
-- `p6_evaluasi_bercak.csv`, `p6_persen_prediksi_vs_acuan.png`, dan
-  `param_bercak.json` untuk evaluasi akhir analisis bercak dan parameter
-  analisis yang dipakai ulang.
+  `p6_sebar_luas_kebulatan.png` untuk pengukuran dan penyaringan komponen;
+- `p6_evaluasi_bercak.csv`, `p6_persen_prediksi_vs_acuan.png`,
+  `p6_diagnosis_salah_kelas.csv`, `p6_salah_kelas_1.png`,
+  `p6_salah_kelas_2.png`, `p6_salah_kelas_3.png`, dan `param_bercak.json`
+  untuk evaluasi akhir analisis bercak dan diagnosis kesalahan.
 
 ## Ringkasan hasil evaluasi
 
@@ -102,14 +107,26 @@ Hasil P6 meliputi:
   sedangkan ambang tetap 30/90 menghasilkan F1 0,970 pada sigma 2.
 - Ambang Canny berbasis persentil memberi hasil terbaik pada kanal R untuk
   `q=98`, dengan F1 rerata 0,937.
-- Pada evaluasi tepi palsu, kanal R menghasilkan lebih sedikit tepi internal
-  daripada Gray pada pengujian 20 citra sehat.
+- Pada P2.3, angka data tidak sepenuhnya mengikuti premis soal: pada
+  kontras rendah, otomatis/tetap 30/90 menghasilkan F1 Gray 0,686/0,927
+  dan R 0,571/0,971. Berdasarkan rerata keluaran
+  `p5_gradien_magnitudo_tepi_daun.csv`, norma L1 gradien tepi daun adalah
+  Gray 177,0 dibanding ambang otomatis 99,2/197,2, dan R 222,9 dibanding
+  101,5/201,5. Ambang otomatis berasal dari intensitas, bukan magnitudo
+  gradien.
+- Pada P2.5, kanal R menghasilkan 0 piksel tepi internal pada bayangan,
+  gelap, dan kontras rendah, tetapi 176 pada normal dan 260,5 pada terang.
+  Kanal Gray berada pada kisaran 328–950, sehingga premis hanya berlaku
+  sebagian.
 - Pada P6, integrasi analisis bercak menghasilkan galat absolut rerata
   persen bercak 0,646%, korelasi prediksi-acuan 0,939, dan akurasi kelas
   0,833 pada 60 citra.
+- Run All menghasilkan 10 citra salah kelas; daftar penyebabnya ada pada
+  `p6_diagnosis_salah_kelas.csv`. Untuk Tabel 11, jumlah daun sehat dengan
+  bercak palsu berturut-turut sesuai aturan adalah 10, 10, 10, dan 3.
 - Aturan penyaringan `luas + kebulatan + rasio` menghasilkan galat jumlah
-  rata-rata terendah pada daun sehat (0,77) dibandingkan aturan tanpa
-  penyaringan (3,03).
+  rata-rata terendah pada daun sehat (0,40) dibandingkan aturan tanpa
+  penyaringan (3,35).
 
 ## Struktur data sintetis
 
