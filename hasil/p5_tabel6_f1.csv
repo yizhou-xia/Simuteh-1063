@@ -1,0 +1,5 @@
+metode,"Mentah, Gray","Mentah, R","Praproses, Gray","Praproses, R"
+Sobel,0.833,0.578,0.644,0.507
+Prewitt,0.858,0.639,0.677,0.554
+LoG,0.737,0.919,0.669,0.878
+Canny,0.753,0.975,0.776,0.97

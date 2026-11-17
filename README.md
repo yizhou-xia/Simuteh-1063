@@ -5,8 +5,9 @@ histogram, penapisan, praproses, deteksi tepi, dan analisis morfologi bercak.
 
 ## Persiapan lingkungan
 
-Gunakan Python 3.13.14 (versi yang digunakan pada eksekusi notebook terakhir),
-lalu pasang dependensi dari folder utama repo:
+Gunakan Python 3.12 atau 3.13 (notebook B1–B5 dijalankan dengan Python 3.13.14;
+P5 dan P6 dijalankan ulang dengan Python 3.12.3 dan paket yang sama persis
+dengan `requirements.txt`), lalu pasang dependensi dari folder utama repo:
 
 ```powershell
 python -m pip install -r requirements.txt
@@ -37,9 +38,9 @@ Buka notebook secara berurutan di VS Code atau Jupyter:
 
 Notebook mengimpor fungsi bersama dari `src/utils_cv.py`, `src/praproses.py`,
 `src/utils_tepi.py`, dan `src/bercak.py`. Jalankan setiap notebook dengan kernel
-Python 3.13.14. Ketujuh notebook di atas telah diverifikasi dengan Run All
-dari awal sampai akhir tanpa error, dan hasil analisis disimpan di folder
-`hasil/`.
+Python 3.12 atau 3.13. Ketujuh notebook di atas telah diverifikasi dengan
+Restart & Run All dari awal sampai akhir tanpa error (nomor eksekusi dimulai
+dari 1), dan hasil analisis disimpan di folder `hasil/`.
 
 ### Langkah 5.5: analisis bercak yang dapat dipakai ulang
 
@@ -62,14 +63,18 @@ Hasil utama P1–P4 meliputi `b2_kb_kanal.csv`, `b3_histogram_5kondisi.png`,
 
 Hasil P5 meliputi:
 
-- `p5_tabel_tepi.csv` dan `p5_f1_kondisi.png` untuk perbandingan Sobel,
-  Prewitt, LoG, dan Canny;
-- `p5_canny_eksperimen.csv`, `p5_canny_otomatis.csv`,
+- `p5_tabel_tepi.csv`, `p5_tabel6_f1.csv`, dan `p5_f1_kondisi.png` untuk
+  perbandingan Sobel, Prewitt, LoG, dan Canny (Tabel 6);
+- `p5_canny_eksperimen.csv`, `p5_tabel7_canny.csv`, `p5_canny_otomatis.csv`,
   `p5_f1_ambang_per_kondisi.csv`, dan `p5_canny_persentil.csv` untuk
-  pemilihan parameter Canny;
-- `p5_gradien_magnitudo_tepi_daun.csv`, `p5_tepi_palsu.csv`, dan
+  pemilihan parameter Canny (Tabel 7 dan Langkah 2.4);
+- `p5_gradien_magnitudo_tepi_daun.csv`, `p5_gradien_tepi_daun.csv`,
+  `p5_median_kanal_kondisi.csv`, `p5_tepi_palsu.csv`, dan
   `p5_tepi_palsu_teh011.png` untuk bukti gradien tepi daun dan tepi palsu
   pada daun sehat.
+
+Keputusan pemakaian deteksi tepi (Tabel 8) ada pada sel markdown terakhir
+`notebook/P5_tepi.ipynb`.
 
 Hasil P6 meliputi:
 
@@ -82,6 +87,10 @@ Hasil P6 meliputi:
   `p6_diagnosis_salah_kelas.csv`, `p6_salah_kelas_1.png`,
   `p6_salah_kelas_2.png`, `p6_salah_kelas_3.png`, dan `param_bercak.json`
   untuk evaluasi akhir analisis bercak dan diagnosis kesalahan.
+
+## Tag rilis
+
+- `v0.2-tepi`: Pertemuan 5 (deteksi tepi, Canny, dan keputusan pemakaian tepi).
 
 ## Ringkasan hasil evaluasi
 
@@ -118,6 +127,9 @@ Hasil P6 meliputi:
   gelap, dan kontras rendah, tetapi 176 pada normal dan 260,5 pada terang.
   Kanal Gray berada pada kisaran 328–950, sehingga premis hanya berlaku
   sebagian.
+- Keputusan Tabel 8: Canny kanal R, sigma 2, ambang 30/90 dipakai untuk batas
+  daun, batas bercak, dan kontur calon fitur bentuk; tepi tidak dipakai untuk
+  mengisi wilayah bercak.
 - Pada P6, integrasi analisis bercak menghasilkan galat absolut rerata
   persen bercak 0,646%, korelasi prediksi-acuan 0,939, dan akurasi kelas
   0,833 pada 60 citra.

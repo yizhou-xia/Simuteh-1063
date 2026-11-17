@@ -31,23 +31,21 @@ def praproses(img_bgr, p=None):
     if img.ndim == 2:
         img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
 
-    # TODO 1: ubah ukuran agar lebar = p["lebar"], rasio aspek tetap,
-    #         gunakan interpolation=cv2.INTER_AREA, simpan ke variabel img
+    # 1. ubah ukuran agar lebar = p["lebar"] dengan rasio aspek tetap (interpolation=cv2.INTER_AREA)
     h, w = img.shape[:2]
     target_w = int(p["lebar"])
     if target_w > 0 and w != target_w:
         target_h = max(1, int(round(h * (target_w / float(w)))))
         img = cv2.resize(img, (target_w, target_h), interpolation=cv2.INTER_AREA)
 
-    # TODO 2: bila p["gamma"] != 1, terapkan koreksi gamma dengan cv2.LUT
+    # 2. koreksi gamma dengan cv2.LUT bila p["gamma"] != 1
     if p["gamma"] != 1:
         gamma = float(p["gamma"])
         lut = np.power(np.linspace(0, 1, 256, dtype=np.float32), gamma) * 255.0
         lut = np.clip(lut, 0, 255).astype(np.uint8)
         img = cv2.LUT(img, lut)
 
-    # TODO 3: bila p["clahe_clip"] > 0, ubah ke HSV, terapkan CLAHE pada
-    #         kanal V saja, lalu kembalikan ke BGR
+    # 3. CLAHE pada kanal V saja (ruang HSV) bila p["clahe_clip"] > 0, lalu kembali ke BGR
     if p["clahe_clip"] > 0:
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         v = hsv[:, :, 2]
@@ -59,7 +57,7 @@ def praproses(img_bgr, p=None):
         hsv[:, :, 2] = v_eq
         img = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
 
-    # TODO 4: redam derau sesuai p["penapis"], p["kernel"], p["sigma"]
+    # 4. redam derau sesuai p["penapis"], p["kernel"], dan p["sigma"]
     penapis = str(p["penapis"]).lower()
     kernel = int(p["kernel"])
     sigma = float(p["sigma"])
@@ -75,7 +73,7 @@ def praproses(img_bgr, p=None):
         k = max(1, kernel if kernel % 2 == 1 else kernel + 1)
         img = cv2.medianBlur(img, k)
 
-    # TODO 5: bila p["tajam_k"] > 0, lakukan unsharp masking
+    # 5. unsharp masking bila p["tajam_k"] > 0
     tajam_k = float(p["tajam_k"])
     if tajam_k > 0:
         blur = cv2.GaussianBlur(img, (0, 0), sigma)
