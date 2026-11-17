@@ -1,11 +1,11 @@
-nama,kelas_acuan,kelas_prediksi,penyebab
-teh_006.png,Sehat,Bercak Ringan,bercak palsu/derau lolos penyaringan
-teh_013.png,Sehat,Bercak Ringan,bercak palsu/derau lolos penyaringan
-teh_023.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
-teh_024.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
-teh_031.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
-teh_033.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
-teh_034.png,Bercak Ringan,Sehat,bercak terlewat atau luas prediksi terlalu kecil
-teh_041.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas
-teh_044.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas
-teh_049.png,Bercak Berat,Bercak Ringan,persentase prediksi melewati batas kelas
+nama,kondisi,kelas_acuan,kelas_prediksi,persen_acuan,persen_prediksi,IoU_daun_awal,komp_biner_awal,komp_tersaring,komp_acuan,luas_prediksi_px,luas_acuan_px,penyebab
+teh_006.png,normal,Sehat,Bercak Ringan,0.0,0.125,0.997,212,3,0,102,0,"3 komponen palsu (kemungkinan tulang atau tepi daun, derau) lolos penyaringan; persen 0.125% = 1.2 x batas_ringan 0.1%"
+teh_013.png,terang,Sehat,Bercak Ringan,0.0,0.103,0.997,36,3,0,66,0,"3 komponen palsu (kemungkinan tulang atau tepi daun, derau) lolos penyaringan; persen 0.103% = 1.0 x batas_ringan 0.1%"
+teh_023.png,terang,Bercak Ringan,Sehat,0.18,0.081,0.996,81,1,1,50,113,"luas bercak prediksi hanya 50 px (44% dari acuan 113 px), persen 0.081% < batas_ringan 0.1% (kemungkinan: penapis median praproses, cincin kecokelatan di bawah ambang, opening)"
+teh_024.png,kontras_rendah,Bercak Ringan,Sehat,0.25,0.0,0.518,0,0,1,0,197,"mask_daun_awal (Otsu kanal S) meleset: IoU daun 0.52; luas daun dan biner awal (0 komponen) tidak mewakili citra, sehingga persen 0.000% tidak dapat diandalkan"
+teh_031.png,normal,Bercak Ringan,Sehat,0.24,0.048,0.998,194,1,2,39,194,"luas bercak prediksi hanya 39 px (20% dari acuan 194 px), persen 0.048% < batas_ringan 0.1% (kemungkinan: penapis median praproses, cincin kecokelatan di bawah ambang, opening)"
+teh_033.png,terang,Bercak Ringan,Sehat,0.21,0.0,0.996,114,0,2,0,177,"luas bercak prediksi hanya 0 px (0% dari acuan 177 px), persen 0.000% < batas_ringan 0.1% (kemungkinan: penapis median praproses, cincin kecokelatan di bawah ambang, opening)"
+teh_034.png,kontras_rendah,Bercak Ringan,Sehat,0.16,0.0,0.615,27,0,1,0,113,"mask_daun_awal (Otsu kanal S) meleset: IoU daun 0.62; luas daun dan biner awal (27 komponen) tidak mewakili citra, sehingga persen 0.000% tidak dapat diandalkan"
+teh_041.png,normal,Bercak Berat,Bercak Ringan,2.57,1.877,0.997,151,6,6,1288,1761,luas bercak prediksi 73% dari acuan (1288 vs 1761 px); persen 1.877% < batas_berat 2.0% (acuan 2.570%)
+teh_044.png,kontras_rendah,Bercak Berat,Bercak Ringan,3.39,0.596,0.661,655,4,6,510,2400,"mask_daun_awal (Otsu kanal S) meleset: IoU daun 0.66; luas daun dan biner awal (655 komponen) tidak mewakili citra, sehingga persen 0.596% tidak dapat diandalkan"
+teh_049.png,kontras_rendah,Bercak Berat,Bercak Ringan,3.91,0.461,0.769,1571,2,5,335,2782,"mask_daun_awal (Otsu kanal S) meleset: IoU daun 0.77; luas daun dan biner awal (1571 komponen) tidak mewakili citra, sehingga persen 0.461% tidak dapat diandalkan"

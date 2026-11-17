@@ -79,18 +79,26 @@ Keputusan pemakaian deteksi tepi (Tabel 8) ada pada sel markdown terakhir
 Hasil P6 meliputi:
 
 - `p6_operasi_morfologi.csv`, `p6_operasi_teh_021.png`,
-  `p6_operasi_teh_011.png`, `p6_eksperimen_se.csv`, dan `p6_panel_se.png`;
+  `p6_operasi_teh_011.png`, `p6_eksperimen_se.csv`, `p6_tabel9_se_k4.csv`,
+  dan `p6_panel_se.png` untuk Kode 3.2, Tabel 9, dan elemen penstruktur;
 - `p6_gradien_morfologi.csv` untuk perbandingan gradien morfologi dan Canny;
-- `p6_ukuran_teh041.csv`, `p6_penyaringan.csv`, dan
-  `p6_sebar_luas_kebulatan.png` untuk pengukuran dan penyaringan komponen;
-- `p6_evaluasi_bercak.csv`, `p6_persen_prediksi_vs_acuan.png`,
-  `p6_diagnosis_salah_kelas.csv`, `p6_salah_kelas_1.png`,
-  `p6_salah_kelas_2.png`, `p6_salah_kelas_3.png`, dan `param_bercak.json`
-  untuk evaluasi akhir analisis bercak dan diagnosis kesalahan.
+- `p6_ukuran_teh041.csv`, `p6_penyaringan.csv`, dan `p6_sebar_komponen.png`
+  (kebulatan vs rasio aspek dan luas vs kebulatan, lengkap dengan garis
+  ambang) untuk pengukuran dan penyaringan komponen (Tabel 10 dan 11);
+- `p6_evaluasi_bercak.csv`, `p6_akurasi_per_kondisi.csv`,
+  `p6_persen_prediksi_vs_acuan.png`, dan `param_bercak.json` untuk evaluasi
+  akhir analisis bercak (Tabel 12);
+- `p6_diagnosis_salah_kelas.csv` (penyebab terukur per citra),
+  `p6_salah_kelas_1.png` sampai `p6_salah_kelas_3.png` (panel kesepuluh citra
+  salah kelas), dan `p6_sensitivitas_param.csv` (bahan Tabel 13).
+
+Justifikasi parameter (Tabel 13) ada pada sel markdown terakhir
+`notebook/P6_morfologi.ipynb`.
 
 ## Tag rilis
 
 - `v0.2-tepi`: Pertemuan 5 (deteksi tepi, Canny, dan keputusan pemakaian tepi).
+- `v0.3-morfologi`: Pertemuan 6 (morfologi, komponen terhubung, dan `src/bercak.py`).
 
 ## Ringkasan hasil evaluasi
 
@@ -133,12 +141,21 @@ Hasil P6 meliputi:
 - Pada P6, integrasi analisis bercak menghasilkan galat absolut rerata
   persen bercak 0,646%, korelasi prediksi-acuan 0,939, dan akurasi kelas
   0,833 pada 60 citra.
-- Run All menghasilkan 10 citra salah kelas; daftar penyebabnya ada pada
+- Run All menghasilkan 10 citra salah kelas (2 daun sehat dinilai berbercak,
+  5 bercak ringan dinilai sehat, 3 bercak berat dinilai ringan). Empat di
+  antaranya berada pada kondisi kontras rendah dengan IoU `mask_daun_awal`
+  hanya 0,52–0,77 (citra lain minimal 0,996); penyebab per citra ada pada
   `p6_diagnosis_salah_kelas.csv`. Untuk Tabel 11, jumlah daun sehat dengan
   bercak palsu berturut-turut sesuai aturan adalah 10, 10, 10, dan 3.
 - Aturan penyaringan `luas + kebulatan + rasio` menghasilkan galat jumlah
   rata-rata terendah pada daun sehat (0,40) dibandingkan aturan tanpa
   penyaringan (3,35).
+- Uji sensitivitas (`p6_sensitivitas_param.csv`): akurasi kelas bergerak
+  0,750–0,850 saat satu parameter diubah; yang paling berpengaruh adalah
+  `batas_berat` (3,0 menurunkan akurasi menjadi 0,750) dan `batas_ringan`
+  (0,2 menjadi 0,783). Nilai final tetap nilai bawaan karena memilih
+  parameter dengan data evaluasi yang sama membuat akurasi terlalu
+  optimistis (P5.2).
 
 ## Struktur data sintetis
 
