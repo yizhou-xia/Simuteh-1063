@@ -3,3 +3,4 @@ __pycache__/
 .ipynb_checkpoints/
 *.pdf
 hasil/modul02/tmp.jpg
+data/
